@@ -1,0 +1,38 @@
+:root {
+    --background-color: #1D1D1D;
+    --text-color: #FAF8FF;
+    --accent-color: #D83A23;
+    --secondary-color: #e1dfe5;
+    --card-title-color: #FF0000;
+    --search-results-background: #1e1e1e;
+    --scrollbar-track-shadow: inset 0 0 5px grey;
+    --scrollbar-thumb-color: #D83A23;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.poster {
+    height: 475px;
+    width: 325px;
+    margin-right: 10px;
+}
+
+.trending-movies {
+    margin-left: 10px;
+}
+
+#movies-list {
+    display: flex;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    margin-left: 10px;
+}
