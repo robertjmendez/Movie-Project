@@ -24,7 +24,7 @@ h1 {
     font-family: 'Oswald', sans-serif;
     letter-spacing: .5em;
     color: var(--accent-color);;
-    font-size: 5rem;
+    font-size: 2rem;
 }
 
 h3 {
@@ -32,9 +32,15 @@ h3 {
 }
 
 .poster {
-    height: 475px;
-    width: 325px;
+    height: 20%;
+    width: 20%;
     margin-right: 10px;
+    transition: transform 0.1s ease-in-out;
+}
+
+.poster:hover {
+    cursor: pointer;
+    transform: scale(1.02);
 }
 
 #now-playing-movies-list {
@@ -85,4 +91,14 @@ h3 {
 strong {
     color: var(--scrollbar-thumb-color);
     letter-spacing: 1px;
+}
+
+.row {
+    overflow: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.row::-webkit-scrollbar {
+    display: none;
 }
