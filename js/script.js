@@ -116,5 +116,81 @@ function displayMovieDetails(movieId) {
         .catch(error => console.error('There has been a problem with your fetch operation:', error));
 }
 
+const searchInput = document.getElementById('title-input');
+const searchResultsContainer = document.getElementById('search-results');
+
+searchInput.addEventListener('input', handleInput);
+
+function handleInput() {
+    const searchTerm = searchInput.value.trim();
+
+    if (searchTerm === '') {
+        clearSearchResults();
+        return;
+    }
+
+    searchMedia(searchTerm)
+        .then(results => {
+            const suggestions = results.map(media => ({
+                title: media.title || media.name, // Use "title" if available, otherwise use "name"
+                poster_path: media.poster_path
+            }));
+            displaySearchResults(suggestions);
+        })
+        .catch(error => {
+            console.error('Failed to fetch media suggestions:', error);
+        });
+}
+
+function searchMedia(query) {
+    const encodedQuery = encodeURIComponent(query);
+
+    return fetch(`https://api.themoviedb.org/3/search/multi?api_key=${TMDB_API_KEY}&query=${encodedQuery}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            return data.results;
+        })
+        .catch(error => {
+            console.error('Failed to search media:', error);
+            return [];
+        });
+}
+
+
+function displaySearchResults(suggestions) {
+    searchResultsContainer.innerHTML = '';
+
+    suggestions.forEach(suggestion => {
+        const suggestionItem = document.createElement('div');
+
+        if (suggestion.poster_path) {
+            const posterPath = `https://image.tmdb.org/t/p/w200${suggestion.poster_path}`;
+            const posterImage = document.createElement('img');
+            posterImage.src = posterPath;
+            posterImage.alt = `${suggestion.title} Poster`;
+            posterImage.classList.add('poster-image');
+            suggestionItem.appendChild(posterImage);
+        }
+
+        const titleElement = document.createElement('span');
+        titleElement.textContent = suggestion.title;
+        suggestionItem.appendChild(titleElement);
+
+        searchResultsContainer.appendChild(suggestionItem);
+    });
+}
+
+function clearSearchResults() {
+    searchResultsContainer.innerHTML = '';
+}
+
+
+
+
 
 
