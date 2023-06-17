@@ -9,15 +9,26 @@
     --scrollbar-thumb-color: #D83A23;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     background-color: var(--background-color);
     color: var(--text-color);
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+h1 {
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: .5em;
+    color: var(--accent-color);;
+    font-size: 5rem;
+}
+
+h3 {
+    color: #D3D6DB;
 }
 
 .poster {
@@ -26,7 +37,17 @@ body {
     margin-right: 10px;
 }
 
-.trending-movies {
+#now-playing-movies-list {
+    display: flex;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    margin-left: 10px;
+}
+
+#upcoming-movies-list {
+    display: flex;
+    overflow-x: auto;
+    flex-wrap: nowrap;
     margin-left: 10px;
 }
 
@@ -35,4 +56,33 @@ body {
     overflow-x: auto;
     flex-wrap: nowrap;
     margin-left: 10px;
+}
+
+#popular-movies-list {
+    display: flex;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    margin-left: 10px;
+}
+
+#top-rated-movies-list {
+    display: flex;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    margin-left: 10px;
+}
+
+#movie-poster-modal {
+    height: 50%;
+    width: 50%;
+}
+
+.modal-content {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+strong {
+    color: var(--scrollbar-thumb-color);
+    letter-spacing: 1px;
 }
