@@ -27,6 +27,40 @@ h1 {
     font-size: 2rem;
 }
 
+.top-header {
+    background-color: #252422;
+    padding-top: 6em;
+}
+
+h2 {
+    font-family: 'Climate Crisis', cursive;
+    color: #ea5e27;
+}
+
+nav {
+    margin-bottom: 2em;
+}
+
+.sub-header p {
+    color: #ea5e27;
+    font-size: 1.25em;
+    font-family: 'Oswald', sans-serif;
+}
+
+a {
+    color: #ea5e27;
+    font-family: 'Work Sans', sans-serif;
+}
+
+a:hover {
+    color: lightgrey;
+}
+
+.navbar {
+    border-top: 1px solid #ea5e27;
+    border-bottom: 1px solid #ea5e27;
+}
+
 .search-bar {
     background-color: transparent;
     border-radius: 20px;
@@ -197,6 +231,35 @@ strong {
 .card-img-top {
     height: 18%;
     width: 18%;
+}
+
+
+@media (max-width: 992px) {
+    .sub-header p {
+        color: #ea5e27;
+        font-size: 1.25em;
+        font-family: 'Oswald', sans-serif;
+        text-align: center;
+    }
+    .sub-header {
+        display: block;
+    }
+    h2 {
+        text-align: center;
+    }
+}
+
+
+@media (min-width: 992px) {
+    .sub-header p {
+        color: #ea5e27;
+        font-size: 1.25em;
+        margin-left: 6em;
+        font-family: 'Oswald', sans-serif;
+    }
+    .sub-header {
+        display: flex;
+    }
 }
 
 
