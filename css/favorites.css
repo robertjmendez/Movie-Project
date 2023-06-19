@@ -71,6 +71,7 @@
      overflow-x: auto;
      flex-wrap: nowrap;
      margin-left: 10px;
+     height: 80vh;
  }
 
  .title, #title-input {
@@ -79,7 +80,7 @@
 
  .top-header {
      background-color: #252422;
-     padding-top: 5em;
+     padding-top: 3em;
 
  }
 
@@ -169,29 +170,7 @@
      background-color: #1D1D1D;
  }
 
- #view-movie-poster-modal {
-     height: 40%;
-     width: 40%;
- }
-
-
  @media (max-width: 992px) {
-     .sub-header p {
-         color: #EB5E28;
-         font-size: 1.25em;
-         font-family: 'Oswald', sans-serif;
-         text-align: center;
-     }
-     .sub-header {
-         display: block;
-     }
-     h2 {
-         text-align: center;
-         font-size: 3em;
-     }
-     h4 {
-         font-size: 1.65em;
-     }
      .card-img-top {
          height: 400px;
          width: 275px;
@@ -202,25 +181,17 @@
 
 
  @media (min-width: 992px) {
-     .sub-header p {
-         color: #ea5e27;
-         font-size: 1.25em;
-         margin-left: 6em;
-         font-family: 'Oswald', sans-serif;
-     }
-     .sub-header {
-         display: flex;
-     }
-     .navbar {
-         padding-left: 0;
-         padding-right: 0;
-     }
-     h2 {
-         font-size: 4em;
-     }
      .card-img-top {
          height: 400px;
          width: 275px;
      }
 
  }
+
+ @media (min-width: 1500px) {
+     .card-img-top {
+         height: 525px;
+         width: 325px;
+     }
+ }
+
