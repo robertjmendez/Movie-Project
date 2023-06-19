@@ -9,6 +9,10 @@
     padding-top: 5em;
 }
 
+.sub-header p {
+    margin: 0;
+}
+
 h2 {
     font-family: 'Climate Crisis', cursive;
     color: #EB5E28;
