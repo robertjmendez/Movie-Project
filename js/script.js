@@ -155,8 +155,8 @@ $(document).ready(function () {
             <div class="d-flex justify-content-between px-3">
               <p class="card-text card-rating p-0">${generateStars(movie.rating)}</p>
               <div class="">
-                <i class="fa-regular fa-pen-to-square edit-icon" data-movie-id="${movie.id}"></i>
-                <i class="fa-solid fa-trash delete-icon" data-movie-id="${movie.id}"></i>
+                <i class="fa-regular fa-pen-to-square edit-icon fa-lg mr-2" data-movie-id="${movie.id}"></i>
+                <i class="fa-solid fa-trash delete-icon fa-lg" data-movie-id="${movie.id}"></i>
               </div>
             </div>
           </div>
