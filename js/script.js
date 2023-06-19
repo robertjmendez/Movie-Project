@@ -1,4 +1,4 @@
-// fetch(`httpss://api.themoviedb.org/3/movie/now_playing?api_key=${TMDB_API_KEY}`)
+// fetch(`http://api.themoviedb.org/3/movie/now_playing?api_key=${TMDB_API_KEY}`)
 //     .then(response => {
 //         if (!response.ok) {
 //             throw new Error('Network response was not ok');
@@ -8,7 +8,7 @@
 //     .then(data => {
 //         const nowPlaying = document.getElementById('now-playing-movies-list');
 //         nowPlaying.innerHTML = data.results.map(movie => {
-//             const posterPath = `httpss://image.tmdb.org/t/p/w500${movie.poster_path}`;
+//             const posterPath = `http://image.tmdb.org/t/p/w500${movie.poster_path}`;
 //             return `
 //             <img src="${posterPath}" alt="${movie.title} poster" class="poster" onclick="displayMovieDetails(${movie.id})" />
 //             `;
@@ -18,7 +18,7 @@
 //         console.error('There has been a problem with your fetch operation:', error);
 //     });
 //
-// fetch(`httpss://api.themoviedb.org/3/tv/top_rated?api_key=${TMDB_API_KEY}`)
+// fetch(`http://api.themoviedb.org/3/tv/top_rated?api_key=${TMDB_API_KEY}`)
 //     .then(response => {
 //         if (!response.ok) {
 //             throw new Error('Network response was not ok');
@@ -28,7 +28,7 @@
 //     .then(data => {
 //         const topRatedTVSeries = document.getElementById('top-rated-tv-series-list');
 //         topRatedTVSeries.innerHTML = data.results.map(tvSeries => {
-//             const posterPath = `httpss://image.tmdb.org/t/p/w500${tvSeries.poster_path}`;
+//             const posterPath = `http://image.tmdb.org/t/p/w500${tvSeries.poster_path}`;
 //             return `
 //         <img src="${posterPath}" alt="${tvSeries.name} poster" class="poster" onclick="displayTVSeriesDetails(${tvSeries.id})" />
 //       `;
@@ -38,7 +38,7 @@
 //         console.error('There has been a problem with your fetch operation:', error);
 //     });
 //
-// fetch(`httpss://api.themoviedb.org/3/movie/upcoming?api_key=${TMDB_API_KEY}`)
+// fetch(`http://api.themoviedb.org/3/movie/upcoming?api_key=${TMDB_API_KEY}`)
 //     .then(response => {
 //         if (!response.ok) {
 //             throw new Error('Network response was not ok');
@@ -48,7 +48,7 @@
 //     .then(data => {
 //         const upcomingMovies = document.getElementById('upcoming-movies-list');
 //         upcomingMovies.innerHTML = data.results.map(movie => {
-//             const posterPath = `httpss://image.tmdb.org/t/p/w500${movie.poster_path}`;
+//             const posterPath = `http://image.tmdb.org/t/p/w500${movie.poster_path}`;
 //             return `
 //             <img src="${posterPath}" alt="${movie.title} poster" class="poster" onclick="displayMovieDetails(${movie.id})" />
 //             `;
@@ -58,7 +58,7 @@
 //         console.error('There has been a problem with your fetch operation:', error);
 //     });
 //
-// fetch(`httpss://api.themoviedb.org/3/trending/movie/week?api_key=${TMDB_API_KEY}`)
+// fetch(`http://api.themoviedb.org/3/trending/movie/week?api_key=${TMDB_API_KEY}`)
 //     .then(response => {
 //         if (!response.ok) {
 //             throw new Error('Network response was not ok');
@@ -68,7 +68,7 @@
 //     .then(data => {
 //         const trendingMoviesList = document.getElementById('trending-movies-list');
 //         trendingMoviesList.innerHTML = data.results.map(movie => {
-//             const posterPath = `httpss://image.tmdb.org/t/p/w500${movie.poster_path}`;
+//             const posterPath = `http://image.tmdb.org/t/p/w500${movie.poster_path}`;
 //             return `
 //             <img src="${posterPath}" alt="${movie.title} poster" class="poster" onclick="displayMovieDetails(${movie.id})" />
 //             `;
@@ -78,7 +78,7 @@
 //         console.error('There has been a problem with your fetch operation:', error);
 //     });
 //
-// fetch(`httpss://api.themoviedb.org/3/movie/popular?api_key=${TMDB_API_KEY}`)
+// fetch(`http://api.themoviedb.org/3/movie/popular?api_key=${TMDB_API_KEY}`)
 //     .then(response => {
 //         if (!response.ok) {
 //             throw new Error('Network response was not ok');
@@ -88,7 +88,7 @@
 //     .then(data => {
 //         const popularList = document.getElementById('popular-movies-list');
 //         popularList.innerHTML = data.results.map(movie => {
-//             const posterPath = `httpss://image.tmdb.org/t/p/w500${movie.poster_path}`;
+//             const posterPath = `http://image.tmdb.org/t/p/w500${movie.poster_path}`;
 //             return `
 //             <img src="${posterPath}" alt="${movie.title} poster" class="poster" onclick="displayMovieDetails(${movie.id})" />
 //             `;
@@ -98,7 +98,7 @@
 //         console.error('There has been a problem with your fetch operation:', error);
 //     });
 //
-// fetch(`httpss://api.themoviedb.org/3/movie/top_rated?api_key=${TMDB_API_KEY}`)
+// fetch(`http://api.themoviedb.org/3/movie/top_rated?api_key=${TMDB_API_KEY}`)
 //     .then(response => {
 //         if (!response.ok) {
 //             throw new Error('Network response was not ok');
@@ -108,7 +108,7 @@
 //     .then(data => {
 //         const topRated = document.getElementById('top-rated-movies-list');
 //         topRated.innerHTML = data.results.map(movie => {
-//             const posterPath = `httpss://image.tmdb.org/t/p/w500${movie.poster_path}`;
+//             const posterPath = `http://image.tmdb.org/t/p/w500${movie.poster_path}`;
 //             return `
 //             <img src="${posterPath}" alt="${movie.title} poster" class="poster" onclick="displayMovieDetails(${movie.id})" />
 //             `;
@@ -120,7 +120,7 @@
 //
 //
 // function displayMovieDetails(movieId) {
-//     fetch(`httpss://api.themoviedb.org/3/movie/${movieId}?api_key=${TMDB_API_KEY}`)
+//     fetch(`http://api.themoviedb.org/3/movie/${movieId}?api_key=${TMDB_API_KEY}`)
 //         .then(response => response.json())
 //         .then(data => {
 //             // Populate the modal with the movie data
@@ -128,7 +128,7 @@
 //             document.getElementById('movie-genre-modal').textContent = data.genres.map(genre => genre.name).join(', ');
 //             document.getElementById('movie-year-modal').textContent = data.release_date;
 //             document.getElementById('movie-plot-modal').textContent = data.overview;
-//             document.getElementById('movie-poster-modal').src = `httpss://image.tmdb.org/t/p/w500${data.poster_path}`;
+//             document.getElementById('movie-poster-modal').src = `http://image.tmdb.org/t/p/w500${data.poster_path}`;
 //
 //             // Show the modal
 //             $('#add-movie-modal').modal('show');
@@ -137,7 +137,7 @@
 // }
 //
 // function displayTVSeriesDetails(tvSeriesId) {
-//     fetch(`httpss://api.themoviedb.org/3/tv/${tvSeriesId}?api_key=${TMDB_API_KEY}`)
+//     fetch(`http://api.themoviedb.org/3/tv/${tvSeriesId}?api_key=${TMDB_API_KEY}`)
 //         .then(response => {
 //             if (!response.ok) {
 //                 throw new Error('Network response was not ok');
@@ -150,7 +150,7 @@
 //             document.getElementById('tv-series-genre-modal').textContent = data.genres.map(genre => genre.name).join(', ');
 //             document.getElementById('tv-series-year-modal').textContent = data.first_air_date;
 //             document.getElementById('tv-series-plot-modal').textContent = data.overview;
-//             document.getElementById('tv-series-poster-modal').src = `httpss://image.tmdb.org/t/p/w500${data.poster_path}`;
+//             document.getElementById('tv-series-poster-modal').src = `http://image.tmdb.org/t/p/w500${data.poster_path}`;
 //
 //             // Show the modal
 //             $('#add-tv-series-modal').modal('show');
@@ -161,7 +161,7 @@
 // }
 //
 // // function fetchMovieDetails(title) {
-// //     return fetch(`https://www.omdbapi.com/?t=${title}&apikey=${OMDB_KEY}`)
+// //     return fetch(`http://www.omdbapi.com/?t=${title}&apikey=${OMDB_KEY}`)
 // //         .then((response) => response.json())
 // //         .catch((error) => {
 // //             console.error("Error:", error);
@@ -184,7 +184,7 @@
 // // }
 //
 // function fetchMovieDetails(title) {
-//     return fetch(`https://www.omdbapi.com/?t=${title}&apikey=${OMDB_KEY}`)
+//     return fetch(`http://www.omdbapi.com/?t=${title}&apikey=${OMDB_KEY}`)
 //         .then((response) => response.json())
 //         .catch((error) => {
 //             console.error("Error:", error);
@@ -203,7 +203,7 @@
 // }
 //
 // function initializePage() {
-//     const serverUrl = "httpss://coconut-same-chive.glitch.me/movies/";
+//     const serverUrl = "http://coconut-same-chive.glitch.me/movies/";
 //     fetch(serverUrl)
 //         .then((response) => {
 //             if (!response.ok) {
@@ -263,7 +263,7 @@ $(document).ready(function () {
     const omdbApiKey = OMDB_KEY;
 
     // URL for the server
-    const serverUrl = "httpss://coconut-same-chive.glitch.me/movies/";
+    const serverUrl = "http://coconut-same-chive.glitch.me/movies/";
 
     // jQuery objects for DOM elements
     const $moviesList = $("#movies-list");
@@ -319,7 +319,7 @@ $(document).ready(function () {
 
     // Function to fetch movie details from the OMDB API
     function fetchMovieDetails(title) {
-        return fetch(`https://www.omdbapi.com/?t=${title}&apikey=${omdbApiKey}`)
+        return fetch(`http://www.omdbapi.com/?t=${title}&apikey=${omdbApiKey}`)
             .then((response) => response.json())
             .catch((error) => {
                 console.error("Error:", error);
@@ -344,7 +344,7 @@ $(document).ready(function () {
     // Function to load movies from the server based on the given type
     function loadMovies(type) {
         // Constructs the URL for the API call based on the specified type
-        const url = `httpss://coconut-same-chive.glitch.me/movies?type=${type}`;
+        const url = `http://coconut-same-chive.glitch.me/movies?type=${type}`;
         // Makes an AJAX request to retrieve the movies data
         $.ajax({
             url: url,
@@ -372,7 +372,7 @@ $(document).ready(function () {
             const movieId = $("#delete-modal").data("movie-id");
             // Makes an AJAX request to delete the movie with the specified ID
             $.ajax({
-                url: `httpss://coconut-same-chive.glitch.me/movies/${movieId}`,
+                url: `http://coconut-same-chive.glitch.me/movies/${movieId}`,
                 method: "DELETE",
             })
                 .then(() => fetch(serverUrl))
@@ -391,7 +391,7 @@ $(document).ready(function () {
         const movieId = $(this).data("movie-id");
         // Makes an AJAX request to retrieve the movie details for the specified movie ID
         $.ajax({
-            url: `httpss://coconut-same-chive.glitch.me/movies/${movieId}`,
+            url: `http://coconut-same-chive.glitch.me/movies/${movieId}`,
             method: "GET",
         }).done(function (movie) {
             // Once the movie details are retrieved, fetches additional details from OMDB API
@@ -422,7 +422,7 @@ $(document).ready(function () {
 
         // Makes an AJAX request to update the movie details
         $.ajax({
-            url: `httpss://coconut-same-chive.glitch.me/movies/${movieId}`,
+            url: `http://coconut-same-chive.glitch.me/movies/${movieId}`,
             method: "PUT",
             data: {
                 title: updatedTitle,
@@ -449,7 +449,7 @@ $(document).ready(function () {
         // Checks if the search text length is greater than 2
         if (searchText.length > 2) {
             $.ajax({
-                url: `https://www.omdbapi.com/?s=${searchText}&apikey=${omdbApiKey}`,
+                url: `http://www.omdbapi.com/?s=${searchText}&apikey=${omdbApiKey}`,
                 method: "GET",
             })
                 .done(function (response) {
@@ -485,7 +485,7 @@ $(document).ready(function () {
         $searchResults.empty();
         // Makes an AJAX request to fetch movie details using the OMDB API
         $.ajax({
-            url: `https://www.omdbapi.com/?t=${selectedTitle}&apikey=${omdbApiKey}`,
+            url: `http://www.omdbapi.com/?t=${selectedTitle}&apikey=${omdbApiKey}`,
             method: "GET",
         })
             // Updates the movie details in the modal with the retrieved data
@@ -524,7 +524,7 @@ $(document).ready(function () {
         const movieTitle = $(this).find(".card-title").text();
         // Retrieves additional movie details from the OMDB API
         $.ajax({
-            url: `https://www.omdbapi.com/?t=${movieTitle}&apikey=${omdbApiKey}`,
+            url: `http://www.omdbapi.com/?t=${movieTitle}&apikey=${omdbApiKey}`,
             method: "GET",
         })
             .done(function (response) {
