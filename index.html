@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -14,8 +15,8 @@
 <body>
 <div class="top-header">
     <div class="container">
-        <nav class="navbar navbar-expand-lg justify-content-center">
-            <a class="navbar-brand" href="#">CINEVERSE</a>
+        <nav class="navbar navbar-expand-lg">
+            <a class="navbar-brand mx-auto" href="#">CINEVERSE</a>
             <div class=" navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav text-center">
                     <li class="nav-item">
@@ -37,145 +38,197 @@
         </div>
     </div>
 </div>
-
-<div class="header d-flex">
-    <h1>CINEVERSE</h1>
-    <div class="search-bar mx-auto align-self-center">
-        <!-- Input group for search -->
-        <div class="search-input input-group">
-            <!-- Search icon -->
-            <span class="input-group-text bg-transparent border-0">
-                <i class="fas fa-search text-white"></i>
-            </span>
-            <!-- Input field for location search -->
-            <input type="text" class="form-control bg-transparent text-white border-0" placeholder="Search for cinema"
-                   id="title-input">
-            <!-- Autocomplete results -->
-            <div id="search-results"></div>
-        </div>
-    </div>
-</div>
-<div class="favorites">
-    <h3>My List</h3>
-    <div id="movies-list" class="row"></div>
-</div>
-
-<div class="now-playing-movies">
-    <h3>Now Playing</h3>
-    <div id="now-playing-movies-list" class="row"></div>
-</div>
-<div class="upcoming-movies">
-    <h3>Upcoming Movies</h3>
-    <div id="upcoming-movies-list" class="row"></div>
-</div>
-
-<div class="trending-movies">
-    <h3>Trending Movies This Week</h3>
-    <div id="trending-movies-list" class="row"></div>
-</div>
-<div class="popular-movies">
-    <h3>Popular Movies</h3>
-    <div id="popular-movies-list" class="row"></div>
-</div>
-<div class="top-rated-movies">
-    <h3>Top Rated Movies</h3>
-    <div id="top-rated-movies-list" class="row"></div>
-</div>
-<div class="tv-series">
-    <h3>Top Rated TV</h3>
-    <div id="top-rated-tv-series-list" class="row"></div>
-</div>
-
-
-<div class="modal fade" id="add-movie-modal" tabindex="-1" role="dialog" aria-labelledby="addMovieModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content mx-auto">
-            <div class="modal-header">
-                <h5 class="modal-title" id="addMovieModalLabel">Add Movie</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body d-flex flex-column">
-                <div>
-                    <strong>Movie Title:</strong> <span id="movie-title-modal"></span>
+<div class="rounded-bottom">
+    <img src="img/movie.jpeg" alt="movies" class="hero-image">
+    <div class="bottom-part">
+        <section class="genres-section container">
+            <h4 class="section-title pb-4">Genres Unleashed</h4>
+            <div class="genre-container row mb-5">
+                <div class="genre col-md-4  col-sm-6">
+                    <h3 class="genre-title">Action</h3>
+                    <p class="genre-description">Fast-paced adrenaline-pumping blockbusters.</p>
                 </div>
-                <div>
-                    <strong>Movie Genre:</strong> <span id="movie-genre-modal"></span>
+                <div class="genre col-md-4 col-sm-6">
+                    <h3 class="genre-title">Romance</h3>
+                    <p class="genre-description">Heartfelt tales that tug at your emotions.</p>
                 </div>
-                <div>
-                    <strong>Year:</strong> <span id="movie-year-modal"></span>
+                <div class="genre col-md-4 col-sm-6">
+                    <h3 class="genre-title">Comedy</h3>
+                    <p class="genre-description">Laugh-out-loud moments and quirky humor.</p>
                 </div>
-                <div>
-                    <strong>Plot:</strong> <span id="movie-plot-modal"></span>
+                <div class="genre col-md-4 col-sm-6">
+                    <h3 class="genre-title">Sci-Fi</h3>
+                    <p class="genre-description">Futuristic adventures and mind-blowing technology.</p>
                 </div>
-                <img id="movie-poster-modal" src="" alt="Movie Poster"
-                     class="align-self-center">
-                <div id="movie-trailer-modal"></div>
-                <div class="form-group">
-                    <label for="movie-rating-modal">Rating</label>
-                    <select class="form-control" id="movie-rating-modal" required>
-                        <option value="">Select a Rating</option>
-                        <option value="1" selected>1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
+                <div class="genre col-md-4 col-sm-6">
+                    <h3 class="genre-title">Horror</h3>
+                    <p class="genre-description">Scary, spine-chilling experiences await.</p>
+                </div>
+                <div class="genre col-md-4 col-sm-6">
+                    <h3 class="genre-title">Documentary</h3>
+                    <p class="genre-description">Enlightening non-fiction stories that inspire.</p>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-danger" id="save-add-button">Add Movie</button>
-            </div>
-        </div>
+            <footer class="footer pb-4">
+                <div class="footer-icons d-flex justify-content-center mb-4">
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-linkedin fa-2x mr-2"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-github fa-2x mr-2"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-twitter fa-2x"></i>
+                    </a>
+                </div>
+                <div class="footer-info d-flex flex-column justify-content-center align-items-center">
+                    <p class="m-0">All rights reserved. Cineverse</p>
+                    <p>Created by Rjmendez</p>
+                </div>
+            </footer>
+        </section>
     </div>
 </div>
 
-<div class="modal fade" id="add-tv-series-modal" tabindex="-1" role="dialog" aria-labelledby="addTVSeriesModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="addTVSeriesModalLabel">Add TV Series</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div>
-                    <strong>TV Series Title:</strong> <span id="tv-series-title-modal"></span>
-                </div>
-                <div>
-                    <strong>TV Series Genre:</strong> <span id="tv-series-genre-modal"></span>
-                </div>
-                <div>
-                    <strong>Year:</strong> <span id="tv-series-year-modal"></span>
-                </div>
-                <div>
-                    <strong>Plot:</strong> <span id="tv-series-plot-modal"></span>
-                </div>
-                <img id="tv-series-poster-modal" src="" alt="TV Series Poster" class="align-self-center">
-                <div class="form-group">
-                    <label for="tv-series-rating-modal">Rating</label>
-                    <select class="form-control" id="tv-series-rating-modal" required>
-                        <option value="">Select a Rating</option>
-                        <option value="1" selected>1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-danger" id="save-add-tv-series-button">Add TV Series</button>
-            </div>
-        </div>
-    </div>
-</div>
+
+<!--<div class="header d-flex">-->
+<!--    <h1>CINEVERSE</h1>-->
+<!--    <div class="search-bar mx-auto align-self-center">-->
+<!--        &lt;!&ndash; Input group for search &ndash;&gt;-->
+<!--        <div class="search-input input-group">-->
+<!--            &lt;!&ndash; Search icon &ndash;&gt;-->
+<!--            <span class="input-group-text bg-transparent border-0">-->
+<!--                <i class="fas fa-search text-white"></i>-->
+<!--            </span>-->
+<!--            &lt;!&ndash; Input field for location search &ndash;&gt;-->
+<!--            <input type="text" class="form-control bg-transparent text-white border-0" placeholder="Search for cinema"-->
+<!--                   id="title-input">-->
+<!--            &lt;!&ndash; Autocomplete results &ndash;&gt;-->
+<!--            <div id="search-results"></div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--<div class="favorites">-->
+<!--    <h3>My List</h3>-->
+<!--    <div id="movies-list" class="row"></div>-->
+<!--</div>-->
+
+<!--<div class="now-playing-movies">-->
+<!--    <h3>Now Playing</h3>-->
+<!--    <div id="now-playing-movies-list" class="row"></div>-->
+<!--</div>-->
+<!--<div class="upcoming-movies">-->
+<!--    <h3>Upcoming Movies</h3>-->
+<!--    <div id="upcoming-movies-list" class="row"></div>-->
+<!--</div>-->
+
+<!--<div class="trending-movies">-->
+<!--    <h3>Trending Movies This Week</h3>-->
+<!--    <div id="trending-movies-list" class="row"></div>-->
+<!--</div>-->
+<!--<div class="popular-movies">-->
+<!--    <h3>Popular Movies</h3>-->
+<!--    <div id="popular-movies-list" class="row"></div>-->
+<!--</div>-->
+<!--<div class="top-rated-movies">-->
+<!--    <h3>Top Rated Movies</h3>-->
+<!--    <div id="top-rated-movies-list" class="row"></div>-->
+<!--</div>-->
+<!--<div class="tv-series">-->
+<!--    <h3>Top Rated TV</h3>-->
+<!--    <div id="top-rated-tv-series-list" class="row"></div>-->
+<!--</div>-->
+
+
+<!--<div class="modal fade" id="add-movie-modal" tabindex="-1" role="dialog" aria-labelledby="addMovieModalLabel"-->
+<!--     aria-hidden="true">-->
+<!--    <div class="modal-dialog" role="document">-->
+<!--        <div class="modal-content mx-auto">-->
+<!--            <div class="modal-header">-->
+<!--                <h5 class="modal-title" id="addMovieModalLabel">Add Movie</h5>-->
+<!--                <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--                    <span aria-hidden="true">&times;</span>-->
+<!--                </button>-->
+<!--            </div>-->
+<!--            <div class="modal-body d-flex flex-column">-->
+<!--                <div>-->
+<!--                    <strong>Movie Title:</strong> <span id="movie-title-modal"></span>-->
+<!--                </div>-->
+<!--                <div>-->
+<!--                    <strong>Movie Genre:</strong> <span id="movie-genre-modal"></span>-->
+<!--                </div>-->
+<!--                <div>-->
+<!--                    <strong>Year:</strong> <span id="movie-year-modal"></span>-->
+<!--                </div>-->
+<!--                <div>-->
+<!--                    <strong>Plot:</strong> <span id="movie-plot-modal"></span>-->
+<!--                </div>-->
+<!--                <img id="movie-poster-modal" src="" alt="Movie Poster"-->
+<!--                     class="align-self-center">-->
+<!--                <div id="movie-trailer-modal"></div>-->
+<!--                <div class="form-group">-->
+<!--                    <label for="movie-rating-modal">Rating</label>-->
+<!--                    <select class="form-control" id="movie-rating-modal" required>-->
+<!--                        <option value="">Select a Rating</option>-->
+<!--                        <option value="1" selected>1</option>-->
+<!--                        <option value="2">2</option>-->
+<!--                        <option value="3">3</option>-->
+<!--                        <option value="4">4</option>-->
+<!--                        <option value="5">5</option>-->
+<!--                    </select>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="modal-footer">-->
+<!--                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+<!--                <button type="button" class="btn btn-danger" id="save-add-button">Add Movie</button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!--<div class="modal fade" id="add-tv-series-modal" tabindex="-1" role="dialog" aria-labelledby="addTVSeriesModalLabel"-->
+<!--     aria-hidden="true">-->
+<!--    <div class="modal-dialog" role="document">-->
+<!--        <div class="modal-content">-->
+<!--            <div class="modal-header">-->
+<!--                <h5 class="modal-title" id="addTVSeriesModalLabel">Add TV Series</h5>-->
+<!--                <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--                    <span aria-hidden="true">&times;</span>-->
+<!--                </button>-->
+<!--            </div>-->
+<!--            <div class="modal-body">-->
+<!--                <div>-->
+<!--                    <strong>TV Series Title:</strong> <span id="tv-series-title-modal"></span>-->
+<!--                </div>-->
+<!--                <div>-->
+<!--                    <strong>TV Series Genre:</strong> <span id="tv-series-genre-modal"></span>-->
+<!--                </div>-->
+<!--                <div>-->
+<!--                    <strong>Year:</strong> <span id="tv-series-year-modal"></span>-->
+<!--                </div>-->
+<!--                <div>-->
+<!--                    <strong>Plot:</strong> <span id="tv-series-plot-modal"></span>-->
+<!--                </div>-->
+<!--                <img id="tv-series-poster-modal" src="" alt="TV Series Poster" class="align-self-center">-->
+<!--                <div class="form-group">-->
+<!--                    <label for="tv-series-rating-modal">Rating</label>-->
+<!--                    <select class="form-control" id="tv-series-rating-modal" required>-->
+<!--                        <option value="">Select a Rating</option>-->
+<!--                        <option value="1" selected>1</option>-->
+<!--                        <option value="2">2</option>-->
+<!--                        <option value="3">3</option>-->
+<!--                        <option value="4">4</option>-->
+<!--                        <option value="5">5</option>-->
+<!--                    </select>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="modal-footer">-->
+<!--                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+<!--                <button type="button" class="btn btn-danger" id="save-add-tv-series-button">Add TV Series</button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 
 
 <!--Bootstrap Scripts-->

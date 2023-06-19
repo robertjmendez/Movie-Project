@@ -29,12 +29,18 @@ h1 {
 
 .top-header {
     background-color: #252422;
-    padding-top: 6em;
+    padding-top: 5em;
 }
 
 h2 {
     font-family: 'Climate Crisis', cursive;
-    color: #ea5e27;
+    color: #EB5E28;
+    z-index: 3;
+}
+
+h4 {
+    font-family: 'Climate Crisis', cursive;
+    color: black;
 }
 
 nav {
@@ -42,13 +48,13 @@ nav {
 }
 
 .sub-header p {
-    color: #ea5e27;
+    color: #EB5E28;
     font-size: 1.25em;
     font-family: 'Oswald', sans-serif;
 }
 
 a {
-    color: #ea5e27;
+    color: #EB5E28;
     font-family: 'Work Sans', sans-serif;
 }
 
@@ -231,12 +237,56 @@ strong {
 .card-img-top {
     height: 18%;
     width: 18%;
+    max-width: 100%;
+}
+
+.hero-image {
+    width: 100vw;
+    object-fit: cover;
+    height: 65vh;
+
+}
+
+.rounded-bottom {
+    background-color: #FFFCF2;
+    height: 100vh;
+}
+
+.footer a, p:nth-child(1){
+    color: #403D39;
+}
+
+.footer p:nth-child(2) {
+    color: #7B766F;
+}
+
+.bottom-part {
+    background-color: #FFFCF2;
+    color: black;
+    padding-top: 2em;
+    font-family: 'Work Sans', sans-serif;
+}
+
+.genre h3 {
+    color: black;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+
+.genre p {
+    font-size: 1em;
+    color: #63605B;
+}
+
+h4 {
+    font-size: 2.5em;
 }
 
 
 @media (max-width: 992px) {
     .sub-header p {
-        color: #ea5e27;
+        color: #EB5E28;
         font-size: 1.25em;
         font-family: 'Oswald', sans-serif;
         text-align: center;
@@ -247,6 +297,7 @@ strong {
     h2 {
         text-align: center;
     }
+
 }
 
 
@@ -260,6 +311,12 @@ strong {
     .sub-header {
         display: flex;
     }
+    .navbar {
+        padding-left: 0;
+        padding-right: 0;
+    }
 }
+
+
 
 
