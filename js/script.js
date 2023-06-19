@@ -302,21 +302,19 @@ $(document).ready(function () {
     // Function to generate HTML for a movie card
     function generateMovieCardHtml(movie, poster) {
         return `
-      <div class="card mb-4 mx-2">
-        <img src="${poster}" class="card-img-top" alt="${movie.title}" width="200" height="275">
-        <div class="card-body">
-          <div class="d-flex flex-column">
+        <div class="movie-details mr-3 mb-5">
+        <img src="${poster}" class="card-img-top" alt="${movie.title}">
+          <div class="d-flex flex-column card-bottom pt-2">
             <p class="card-title wrap-text d-inline text-center">${movie.title}</p>
-            <div class="d-flex justify-content-between card-bottom">
+            <div class="d-flex justify-content-between px-3">
               <p class="card-text card-rating p-0">${generateStars(movie.rating)}</p>
-              <div>
+              <div class="">
                 <i class="fa-regular fa-pen-to-square edit-icon" data-movie-id="${movie.id}"></i>
                 <i class="fa-solid fa-trash delete-icon" data-movie-id="${movie.id}"></i>
               </div>
             </div>
           </div>
-        </div>
-      </div>`;
+        </div>`;
     }
 
     // Function to fetch movie details from the OMDB API
@@ -463,7 +461,7 @@ $(document).ready(function () {
                         movies.forEach((movie) => {
                             suggestions += `
                 <div class="suggestion d-flex pl-3 mb-2">
-                  <img src="${movie.Poster}" alt="${movie.Title}" class="poster mr-2" height="75px" width="50px">
+                  <img src="${movie.Poster}" alt="${movie.Title}" class="poster mr-2">
                   <p class="title align-self-center">${movie.Title}</p>
                 </div>`;
                         });
@@ -549,7 +547,7 @@ $(document).ready(function () {
     function initializeEventListeners() {
         $("body").on("click", ".delete-icon", handleDeleteIconClick);
         $("body").on("click", ".edit-icon", handleEditIconClick);
-        $("body").on("click", ".card", handleCardClick);
+        $("body").on("click", ".movie-details", handleCardClick);
         $("#save-edit-button").on("click", handleSaveEditButtonClick);
         $("#save-add-button").on("click", handleSaveAddButtonClick);
         $("#title-input").on("keyup", handleSearchKeyUp);

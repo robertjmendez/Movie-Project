@@ -34,7 +34,7 @@
             </div>
         </nav>
         <div class="header">
-            <div class="search-bar col-12 mx-auto align-self-center">
+            <div class="search-bar col-12 mx-auto align-self-center mb-5">
                 <!-- Input group for search -->
                 <div class="search-input input-group">
                     <!-- Search icon -->
@@ -43,7 +43,7 @@
             </span>
                     <!-- Input field for location search -->
                     <input type="text" class="form-control bg-transparent border-0"
-                           placeholder="Search for cinema"
+                           placeholder="Add cinema to your favorites"
                            id="title-input">
                     <!-- Autocomplete results -->
                     <div id="search-results"></div>
@@ -51,8 +51,165 @@
             </div>
         </div>
         <div class="favorites">
-            <h3>My List</h3>
-            <div id="movies-list" class="row"></div>
+            <div id="movies-list" class=""></div>
+        </div>
+    </div>
+</div>
+<footer class="footer pb-2 pt-4">
+    <div class="footer-icons d-flex justify-content-center mb-4">
+        <a href="#" class="social-icon">
+            <i class="fab fa-linkedin fa-2x mr-2"></i>
+        </a>
+        <a href="#" class="social-icon">
+            <i class="fab fa-github fa-2x mr-2"></i>
+        </a>
+        <a href="#" class="social-icon">
+            <i class="fab fa-twitter fa-2x"></i>
+        </a>
+    </div>
+    <div class="footer-info d-flex flex-column justify-content-center align-items-center">
+        <p class="m-0">All rights reserved. Cineverse</p>
+        <p>Created by Rjmendez</p>
+    </div>
+</footer>
+<!--Add movie modal-->
+<div class="modal fade" id="add-movie-modal" tabindex="-1" role="dialog" aria-labelledby="addMovieModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content mx-auto">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addMovieModalLabel">Add Movie</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body d-flex flex-column">
+                <div>
+                    <strong>Movie Title:</strong> <span id="movie-title-modal"></span>
+                </div>
+                <div>
+                    <strong>Movie Genre:</strong> <span id="movie-genre-modal"></span>
+                </div>
+                <div>
+                    <strong>Year:</strong> <span id="movie-year-modal"></span>
+                </div>
+                <div>
+                    <strong>Plot:</strong> <span id="movie-plot-modal"></span>
+                </div>
+                <div>
+                    <strong>Type:</strong> <span id="movie-type-modal"></span>
+                </div>
+                <img id="movie-poster-modal" src="" alt="Movie Poster" height="275px" width="60%"
+                     class="align-self-center">
+                <div class="form-group">
+                    <label for="movie-rating-modal">Rating</label>
+                    <select class="form-control" id="movie-rating-modal" required>
+                        <option value="">Select a Rating</option>
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger" id="save-add-button">Add Movie</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Delete movie modal-->
+<div class="modal" id="delete-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title ">Confirm Delete</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body ">
+                <p>Are you sure you want to delete this movie?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="confirm-delete">Delete</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!--Edit movie modal-->
+<div class="modal" id="edit-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title ">Edit Movie</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="edit-title-input" class="">Title:</label>
+                    <input type="text" class="form-control" id="edit-title-input">
+                </div>
+                <div class="mb-3">
+                    <label for="edit-type-input" class="form-label">Type</label>
+                    <input type="text" class="form-control" id="edit-type-input" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="edit-rating-input" class="">Rating:</label>
+                    <select class="form-control" id="edit-rating-input" required>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="save-edit-button">Save</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--View movie modal-->
+<div class="modal fade" id="view-movie-modal" tabindex="-1" role="dialog" aria-labelledby="viewMovieModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content mx-auto">
+            <div class="modal-header">
+                <h5 class="modal-title" id="viewMovieModalLabel">View Movie</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body d-flex flex-column">
+                <div class="">
+                    <strong>Movie Title:</strong> <span id="view-movie-title-modal"></span>
+                </div>
+                <div>
+                    <strong>Movie Genre:</strong> <span id="view-movie-genre-modal"></span>
+                </div>
+                <div class="">
+                    <strong>Year:</strong> <span id="view-movie-year-modal"></span>
+                </div>
+                <div>
+                    <strong>IMDB Rating:</strong> <span id="view-movie-rating-modal"></span>
+                </div>
+                <div class="mb-3">
+                    <strong>Plot:</strong> <span id="view-movie-plot-modal"></span>
+                </div>
+                <img id="view-movie-poster-modal" src="" alt="Movie Poster" height="275px" width="60%"
+                     class="align-self-center">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
         </div>
     </div>
 </div>

@@ -80,6 +80,7 @@
  .top-header {
      background-color: #252422;
      padding-top: 5em;
+     height: 100vh;
  }
 
  h2 {
@@ -125,6 +126,10 @@
      height: 100vh;
  }
 
+ .footer {
+     background-color: #FFFCF2;
+ }
+
  .footer a, p:nth-child(1){
      color: #403D39;
  }
@@ -148,8 +153,25 @@
      margin-bottom: 4em;
  }
 
- .fa-search {
-     color: #EB5E28;
+ .fa-search, .card-title {
+     color: #EB5E28 !important;
+ }
+
+ .poster {
+     height: 75px;
+     width: 50px;
+ }
+
+ ::-webkit-scrollbar {
+     display: none;
+ }
+
+ .edit-icon, .delete-icon, .fa-star {
+     color: #FFFCF2;
+ }
+
+ .card-bottom {
+     background-color: #1D1D1D;
  }
 
 
@@ -191,4 +213,9 @@
      h2 {
          font-size: 4em;
      }
+     .card-img-top {
+         height: 400px;
+         width: 275px;
+     }
+
  }
