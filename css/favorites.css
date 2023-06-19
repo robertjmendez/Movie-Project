@@ -11,10 +11,9 @@
  .search-bar {
      background-color: transparent;
      border-radius: 20px;
-     border: 1px solid var(--text-color);
+     border: 1px solid #EB5E28;
      height: 50%;
      margin-top: 3px;
-     width: 50%;
  }
 
  .search-input {
@@ -29,7 +28,7 @@
  }
 
  .search-input .form-control::placeholder {
-     color: var(--text-color);
+     color: #EB5E28;
  }
 
  .search-input .input-group-text {
@@ -48,7 +47,7 @@
      top: 100%;
      left: 0;
      right: 0;
-     background-color: var(--search-results-background);
+     background-color: #252422;
      border-radius: 4px;
      list-style-type: none;
      padding: 0;
@@ -64,14 +63,18 @@
  }
 
  #search-results div:hover {
-     background-color: grey;
+     background-color: #403D39;
  }
 
- #now-playing-movies-list {
+ #movies-list {
      display: flex;
      overflow-x: auto;
      flex-wrap: nowrap;
      margin-left: 10px;
+ }
+
+ .title, #title-input {
+     color: #EB5E28;
  }
 
  .top-header {
@@ -137,23 +140,16 @@
      font-family: 'Work Sans', sans-serif;
  }
 
- .genre h3 {
-     color: black;
-     font-size: 1.2em;
-     margin-bottom: 15px;
- }
-
- .genre p {
-     font-size: 1em;
-     color: #63605B;
- }
-
  h4 {
      font-size: 2.5em;
  }
 
  .genre-container {
      margin-bottom: 4em;
+ }
+
+ .fa-search {
+     color: #EB5E28;
  }
 
 
