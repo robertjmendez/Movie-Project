@@ -169,6 +169,11 @@
      background-color: #1D1D1D;
  }
 
+ #view-movie-poster-modal {
+     height: 40%;
+     width: 40%;
+ }
+
 
  @media (max-width: 992px) {
      .sub-header p {
