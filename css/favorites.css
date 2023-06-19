@@ -202,14 +202,27 @@
      margin-right: 10px;
  }
 
+ .modal-content {
+     background-color: #252422;
+     max-width: 70%;
+ }
+
+ strong {
+     color: #EB5E28;
+ }
+
+ span {
+     color: white;
+ }
+
  @media (max-width: 992px) {
      .card-img-top {
-         height: 325px;
-         width: 235px;
+         height: 300px;
+         width: 215px;
      }
      .top-rated-poster {
-         height: 50%;
-         width: 50%;
+         height: 55%;
+         width: 55%;
          margin-right: 10px;
      }
      h3 {
