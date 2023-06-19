@@ -283,6 +283,10 @@ h4 {
     font-size: 2.5em;
 }
 
+.genre-container {
+    margin-bottom: 4em;
+}
+
 
 @media (max-width: 992px) {
     .sub-header p {
@@ -296,6 +300,10 @@ h4 {
     }
     h2 {
         text-align: center;
+        font-size: 3em;
+    }
+    h4 {
+        font-size: 1.65em;
     }
 
 }
@@ -314,6 +322,9 @@ h4 {
     .navbar {
         padding-left: 0;
         padding-right: 0;
+    }
+    h2 {
+        font-size: 4em;
     }
 }
 
