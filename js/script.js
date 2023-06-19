@@ -87,47 +87,6 @@ $(document).ready(function () {
         });
 
 
-    function displayMovieDetails(movieId) {
-        fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${TMDB_API_KEY}`)
-            .then(response => response.json())
-            .then(data => {
-                // Populate the modal with the movie data
-                document.getElementById('movie-title-modal').textContent = data.title;
-                document.getElementById('movie-genre-modal').textContent = data.genres.map(genre => genre.name).join(', ');
-                document.getElementById('movie-year-modal').textContent = data.release_date;
-                document.getElementById('movie-plot-modal').textContent = data.overview;
-                document.getElementById('movie-poster-modal').src = `https://image.tmdb.org/t/p/w500${data.poster_path}`;
-
-                // Show the modal
-                $('#add-movie-modal').modal('show');
-            })
-            .catch(error => console.error('There has been a problem with your fetch operation:', error));
-    }
-
-    function displayTVSeriesDetails(tvSeriesId) {
-        fetch(`https://api.themoviedb.org/3/tv/${tvSeriesId}?api_key=${TMDB_API_KEY}`)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                // Populate the modal with the TV series data
-                document.getElementById('tv-series-title-modal').textContent = data.name;
-                document.getElementById('tv-series-genre-modal').textContent = data.genres.map(genre => genre.name).join(', ');
-                document.getElementById('tv-series-year-modal').textContent = data.first_air_date;
-                document.getElementById('tv-series-plot-modal').textContent = data.overview;
-                document.getElementById('tv-series-poster-modal').src = `https://image.tmdb.org/t/p/w500${data.poster_path}`;
-
-                // Show the modal
-                $('#add-tv-series-modal').modal('show');
-            })
-            .catch(error => {
-                console.error('There has been a problem with your fetch operation:', error);
-            });
-    }
-
     // Function to generate star icons based on a rating
     function generateStars(rating) {
         let stars = "";
