@@ -449,7 +449,7 @@ $(document).ready(function () {
         // Checks if the search text length is greater than 2
         if (searchText.length > 2) {
             $.ajax({
-                url: `http://www.omdbapi.com/?s=${searchText}&apikey=${omdbApiKey}`,
+                url: `https://www.omdbapi.com/?s=${searchText}&apikey=${omdbApiKey}`,
                 method: "GET",
             })
                 .done(function (response) {
@@ -485,7 +485,7 @@ $(document).ready(function () {
         $searchResults.empty();
         // Makes an AJAX request to fetch movie details using the OMDB API
         $.ajax({
-            url: `http://www.omdbapi.com/?t=${selectedTitle}&apikey=${omdbApiKey}`,
+            url: `https://www.omdbapi.com/?t=${selectedTitle}&apikey=${omdbApiKey}`,
             method: "GET",
         })
             // Updates the movie details in the modal with the retrieved data
@@ -524,7 +524,7 @@ $(document).ready(function () {
         const movieTitle = $(this).find(".card-title").text();
         // Retrieves additional movie details from the OMDB API
         $.ajax({
-            url: `http://www.omdbapi.com/?t=${movieTitle}&apikey=${omdbApiKey}`,
+            url: `https://www.omdbapi.com/?t=${movieTitle}&apikey=${omdbApiKey}`,
             method: "GET",
         })
             .done(function (response) {
