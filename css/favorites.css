@@ -158,14 +158,35 @@
      margin-left: 8px;
  }
 
+ .movie-details {
+     background-color: red;
+     height: 400px;
+ }
+
  .poster {
      height: 75px;
      width: 50px;
  }
 
+ /* width */
  ::-webkit-scrollbar {
-     display: none;
+     height: 8px;
+     width: 8px;
  }
+
+ /* Track */
+ ::-webkit-scrollbar-track {
+     box-shadow: inset 0 0 5px #7B766F;
+     border-radius: 10px;
+     margin-inline: .5em;
+ }
+
+ /* Handle */
+ ::-webkit-scrollbar-thumb {
+     background: #EB5E28;
+     border-radius: 10px;
+ }
+
 
  .edit-icon, .delete-icon, .fa-star {
      color: #FFFCF2;
