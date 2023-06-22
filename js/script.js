@@ -103,7 +103,7 @@ $(document).ready(function () {
     // Function to generate HTML for a movie card
     function generateMovieCardHtml(movie, poster) {
         return `
-        <div class="movie-details mr-3">
+        <div class="movie-details mr-3 mb-2">
         <img src="${poster}" class="card-img-top" alt="${movie.title}">
           <div class="d-flex flex-column card-bottom pt-2">
             <p class="card-title wrap-text d-inline text-center">${movie.title}</p>
