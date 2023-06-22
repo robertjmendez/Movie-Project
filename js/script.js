@@ -2,87 +2,59 @@
 
 $(document).ready(function () {
     // API key for the OMDB API
-    const omdbApiKey = OMDB_KEY;
+    const OMDB_API_KEY = OMDB_KEY;
+    const BASE_URL = 'https://api.themoviedb.org/3/';
+    const IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
 
     // URL for the server
-    const serverUrl = "https://coconut-same-chive.glitch.me/movies/";
+    const SERVER_URL = "https://coconut-same-chive.glitch.me/movies/";
 
     // jQuery objects for DOM elements
-    const $moviesList = $("#movies-list");
-    const $searchResults = $("#search-results");
+    const $MOVIES_LIST = $("#movies-list");
+    const $SEARCH_RESULTS = $("#search-results");
 
     // Function to show the loading spinner
     function showLoadingSpinner() {
-        $moviesList.html(
+        $MOVIES_LIST.html(
             `<div class="lds-dual-ring"></div>`
         );
-        $moviesList.addClass("spinner-container");
+        $MOVIES_LIST.addClass("spinner-container");
     }
 
     // Function to hide the loading spinner
     function hideLoadingSpinner() {
-        $moviesList.removeClass("spinner-container");
+        $MOVIES_LIST.removeClass("spinner-container");
     }
 
-    fetch(`https://api.themoviedb.org/3/tv/top_rated?api_key=${TMDB_API_KEY}`)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            const topRatedTVSeries = document.getElementById('top-rated-tv-series-list');
-            topRatedTVSeries.innerHTML = data.results.map(tvSeries => {
-                const posterPath = `https://image.tmdb.org/t/p/w500${tvSeries.poster_path}`;
-                return `
-        <img src="${posterPath}" alt="${tvSeries.name} poster" class="top-rated-poster" onclick="displayTVSeriesDetails(${tvSeries.id})" />
-      `;
-            }).join('');
-        })
-        .catch(error => {
-            console.error('There has been a problem with your fetch operation:', error);
-        });
 
-    fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=${TMDB_API_KEY}`)
-        .then(response => {
+// Define the fetch and process function.
+    async function fetchAndProcess(url, containerId, detailFunction) {
+        try {
+            const response = await fetch(url);
+
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
-            return response.json();
-        })
-        .then(data => {
-            const trendingMoviesList = document.getElementById('trending-movies-list');
-            trendingMoviesList.innerHTML = data.results.map(movie => {
-                const posterPath = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+
+            const data = await response.json();
+            const container = document.getElementById(containerId);
+
+            container.innerHTML = data.results.map(item => {
+                const posterPath = `${IMAGE_URL}${item.poster_path}`;
                 return `
-            <img src="${posterPath}" alt="${movie.title} poster" class="top-rated-poster" onclick="displayMovieDetails(${movie.id})" />
+                <img src="${posterPath}" alt="${item.title || item.name} poster" class="top-rated-poster" onclick="${detailFunction}(${item.id})" />
             `;
             }).join('');
-        })
-        .catch(error => {
+        } catch (error) {
             console.error('There has been a problem with your fetch operation:', error);
-        });
+        }
+    }
 
-    fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${TMDB_API_KEY}`)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            const topRated = document.getElementById('top-rated-movies-list');
-            topRated.innerHTML = data.results.map(movie => {
-                const posterPath = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-                return `
-            <img src="${posterPath}" alt="${movie.title} poster" class="top-rated-poster" onclick="displayMovieDetails(${movie.id})" />
-            `;
-            }).join('');
-        })
-        .catch(error => {
-            console.error('There has been a problem with your fetch operation:', error);
-        });
+// Use the function for each specific case.
+    fetchAndProcess(`${BASE_URL}tv/top_rated?api_key=${TMDB_API_KEY}`, 'top-rated-tv-series-list', 'displayTVSeriesDetails');
+    fetchAndProcess(`${BASE_URL}trending/movie/week?api_key=${TMDB_API_KEY}`, 'trending-movies-list', 'displayMovieDetails');
+    fetchAndProcess(`${BASE_URL}movie/top_rated?api_key=${TMDB_API_KEY}`, 'top-rated-movies-list', 'displayMovieDetails');
+
 
 
     // Function to generate star icons based on a rating
@@ -120,7 +92,7 @@ $(document).ready(function () {
 
     // Function to fetch movie details from the OMDB API
     function fetchMovieDetails(title) {
-        return fetch(`https://www.omdbapi.com/?t=${title}&apikey=${omdbApiKey}`)
+        return fetch(`https://www.omdbapi.com/?t=${title}&apikey=${OMDB_API_KEY}`)
             .then((response) => response.json())
             .catch((error) => {
                 console.error("Error:", error);
@@ -137,7 +109,7 @@ $(document).ready(function () {
                 // Generates the HTML code for the movie card using the fetched poster
                 movieListHtml += generateMovieCardHtml(movie, poster);
                 // Updates the movies list element with the updated HTML
-                $moviesList.html(movieListHtml);
+                $MOVIES_LIST.html(movieListHtml);
             });
         });
     }
@@ -176,7 +148,7 @@ $(document).ready(function () {
                 url: `https://coconut-same-chive.glitch.me/movies/${movieId}`,
                 method: "DELETE",
             })
-                .then(() => fetch(serverUrl))
+                .then(() => fetch(SERVER_URL))
                 .then((resp) => resp.json())
                 .then((data) => {
                     console.log(data);
@@ -231,7 +203,7 @@ $(document).ready(function () {
                 type: updatedType,
             },
         })
-            .then(() => fetch(serverUrl))
+            .then(() => fetch(SERVER_URL))
             .then((resp) => resp.json())
             .then((data) => {
                 console.log(data);
@@ -250,7 +222,7 @@ $(document).ready(function () {
         // Checks if the search text length is greater than 2
         if (searchText.length > 2) {
             $.ajax({
-                url: `https://www.omdbapi.com/?s=${searchText}&apikey=${omdbApiKey}`,
+                url: `https://www.omdbapi.com/?s=${searchText}&apikey=${OMDB_API_KEY}`,
                 method: "GET",
             })
                 .done(function (response) {
@@ -268,7 +240,7 @@ $(document).ready(function () {
                         });
                     }
                     // Updates the search results container with the generated suggestions
-                    $searchResults.html(suggestions);
+                    $SEARCH_RESULTS.html(suggestions);
                 })
                 .fail(function (error) {
                     console.log(error);
@@ -283,10 +255,10 @@ $(document).ready(function () {
         // Sets the selected title as the value of the movie title input
         $("#movie-title-modal").val(selectedTitle);
         // Clears the search results container
-        $searchResults.empty();
+        $SEARCH_RESULTS.empty();
         // Makes an AJAX request to fetch movie details using the OMDB API
         $.ajax({
-            url: `https://www.omdbapi.com/?t=${selectedTitle}&apikey=${omdbApiKey}`,
+            url: `https://www.omdbapi.com/?t=${selectedTitle}&apikey=${OMDB_API_KEY}`,
             method: "GET",
         })
             // Updates the movie details in the modal with the retrieved data
@@ -310,7 +282,7 @@ $(document).ready(function () {
         // Checks if the clicked element is not a descendant of the title input or search results
         if (!$(event.target).closest("#title-input").length && !$(event.target).closest("#search-results").length) {
             // Clears the search results container
-            $searchResults.empty();
+            $SEARCH_RESULTS.empty();
         }
     }
 
@@ -325,7 +297,7 @@ $(document).ready(function () {
         const movieTitle = $(this).find(".card-title").text();
         // Retrieves additional movie details from the OMDB API
         $.ajax({
-            url: `https://www.omdbapi.com/?t=${movieTitle}&apikey=${omdbApiKey}`,
+            url: `https://www.omdbapi.com/?t=${movieTitle}&apikey=${OMDB_API_KEY}`,
             method: "GET",
         })
             .done(function (response) {
@@ -380,7 +352,7 @@ $(document).ready(function () {
         const newType = $("#movie-type-modal").text();
         // Makes an AJAX request to add the new movie to the server
         $.ajax({
-            url: serverUrl,
+            url: SERVER_URL,
             method: "POST",
             data: {
                 title: newTitle,
@@ -388,7 +360,7 @@ $(document).ready(function () {
                 type: newType,
             },
         })
-            .then(() => fetch(serverUrl))
+            .then(() => fetch(SERVER_URL))
             .then((resp) => resp.json())
             .then((data) => {
                 console.log(data);
@@ -404,7 +376,7 @@ $(document).ready(function () {
         showLoadingSpinner();
         // Makes an AJAX request to retrieve the movie data from the server
         $.ajax({
-            url: serverUrl,
+            url: SERVER_URL,
             method: "GET",
         })
             .done(function (data) {
