@@ -14,9 +14,7 @@ $(document).ready(function () {
     // Function to show the loading spinner
     function showLoadingSpinner() {
         $moviesList.html(
-            `<div class="spinner-border text-danger" role="status">
-        <span class="visually-hidden"></span>
-      </div>`
+            `<div class="lds-dual-ring"></div>`
         );
         $moviesList.addClass("spinner-container");
     }
