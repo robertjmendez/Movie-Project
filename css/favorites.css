@@ -97,6 +97,17 @@
      border-color: #EB5E28 transparent #EB5E28 transparent;
      animation: lds-dual-ring 1.2s linear infinite;
  }
+
+ .flex-container {
+     display: flex;
+     flex-direction: column;
+     min-height: 100vh;
+ }
+
+ footer {
+     margin-top: auto;
+ }
+
  @keyframes lds-dual-ring {
      0% {
          transform: rotate(0deg);
