@@ -382,8 +382,14 @@ $(document).ready(function () {
             .done(function (data) {
                 const movies = data;
                 console.log(data);
-                // Renders the movie list on the page
-                renderMovieList(movies);
+                // Checks if there are any movies
+                if (movies.length === 0) {
+                    // If there are no movies, displays a message
+                    $MOVIES_LIST.html("<p>No cinema in favorites.</p>");
+                } else {
+                    // If there are movies, renders the movie list on the page
+                    renderMovieList(movies);
+                }
                 // Hides the loading spinner
                 hideLoadingSpinner();
             })
